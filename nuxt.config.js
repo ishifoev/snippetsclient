@@ -38,7 +38,28 @@ export default {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    
+
+      strategies: {
+        local: {
+          endpoints: {
+          login:{
+            url: '/auth/login',
+            method: 'post',
+            propertyName: 'meta.token'
+          },
+          user: {
+            url: 'auth/me',
+            method: 'get',
+            propertyName: 'data'
+          }
+        }
+      }
+   }
+  },
    axios: {
    baseURL: 'http://cart.test/api'
   },
