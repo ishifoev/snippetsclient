@@ -42,7 +42,6 @@ export default {
   ],
   auth: {
     
-
       strategies: {
         local: {
           endpoints: {
@@ -52,7 +51,7 @@ export default {
             propertyName: 'meta.token'
           },
           user: {
-            url: 'auth/me',
+            url: '/auth/me',
             method: 'get',
             propertyName: 'data'
           }
