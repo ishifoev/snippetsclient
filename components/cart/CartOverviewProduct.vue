@@ -13,9 +13,13 @@
 
 				<div class="control">
 					<div class="select is-fullwidth">
-					<select >
+					<select v-model="quantity">
 						<option value="0">0</option>
-						<option value="" v-for="x in product.stock_count" :key="x">
+						<option :value="x" 
+						        v-for="x in product.stock_count" 
+						        :key="x"
+						        :selected = "x == product.quantity"
+						        >
 							{{ x }}
 						</option>
 					</select>
@@ -25,7 +29,7 @@
 		</td>
 
 		<td>
-          total 
+         {{ product.total }}
 		</td>
 
 		<td>
@@ -36,15 +40,26 @@
 <script>
 import { mapActions } from 'vuex'
 	export default {
+		data(){
+			return {
+				quantity: this.product.quantity
+			}
+		},
 		props: {
 			product: {
 				required: true,
 				type: Object
 			}
 		},
+		watch: {
+			'quantity' (quantity) {
+				this.update({ productId: this.product.id, quantity})
+			}
+		},
 		methods: {
 			...mapActions({
-				destroy: 'cart/destroy'
+				destroy: 'cart/destroy',
+				update: 'cart/update'
 			})
 		}
 	}

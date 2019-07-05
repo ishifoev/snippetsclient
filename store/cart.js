@@ -20,6 +20,7 @@ export const mutations = {
 export const actions = {
 	async getCart({commit}) {
 		let response = await this.$axios.$get('cart')
+
         commit('SET_PRODUCTS', response.data.products)
 
 		return response
@@ -28,6 +29,14 @@ export const actions = {
 	async destroy ({dispatch}, productId) {
 
 		let response = await this.$axios.$delete(`cart/${productId}`)
+        dispatch('getCart')
+	},
+
+	async update ({dispatch}, {productId, quantity}) {
+
+		let response = await this.$axios.$patch(`cart/${productId}`,{
+			quantity
+		})
         dispatch('getCart')
 	}
 }

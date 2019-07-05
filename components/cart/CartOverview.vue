@@ -1,4 +1,5 @@
 <template>
+	
 	<table class="table is-hoverable is-fullwidth">
 		<tbody>
 
