@@ -24,6 +24,8 @@
 
 		             	</td>
 		             </tr>
+		             <slot name="rows">
+		             </slot>
 		</tbody>
 	</table>
 </template>

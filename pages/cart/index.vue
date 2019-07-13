@@ -8,12 +8,13 @@
 					<article class="message" v-if="products.length">
 						<CartOverview/>
 					</article>
-					<a href="#"
+					<nuxt-link
+					   :to="{ name: 'checkout'}"
 					   v-if="!empty"
                        class="button is-fullwidth is-info is-medium" 
 					>
 					Checkout
-					</a>
+					</nuxt-link>
 				</div>
 			</div>
 		</div>
