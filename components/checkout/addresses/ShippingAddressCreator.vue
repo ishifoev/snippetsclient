@@ -1,5 +1,6 @@
 <template>
 	<form action="#" @submit.prevent="store">
+		{{ form }}
 		<div class="field">
 			<label class="label">Name</label>
 			<div class="control">
@@ -33,9 +34,7 @@
 					<label class="label">Country</label>
 					<div class="control">
 						<div class="select is-fullwidth">
-							<select v-model="form.country_id">
-								<option value="1">Afganistan</option>
-							</select>
+							<CountryDropdown v-model="form.country_id"/>
 						</div>
 					</div>
 				</div>
@@ -53,6 +52,7 @@
 	</form>
 </template>
 <script>
+import CountryDropdown from '@/components/form/CountryDropdown'
 	export default {
 		data() {
 			return {
@@ -66,6 +66,9 @@
 				}
 				
 			}
+		},
+		components: {
+           CountryDropdown
 		},
 		methods: {
 			async store() {
