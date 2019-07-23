@@ -3,8 +3,10 @@
 		<div class="container-fluid">
 			<div class="columns">
 				<div class="column is-three-quarters">
+					{{ form }}
 					<ShippingAddress 
                      :addresses="addresses"
+                     v-model="form.address_id"
 
 					/>
 					<article class="message">
@@ -18,9 +20,10 @@
 							<h1 class="title is-5">Shipping</h1>
 
 							<div class="select is-fullwidth">
-								<select>
-									<option>
-										Aini 26 app 7
+								
+								<select  v-model="form.shipping_method_id">
+									<option v-for="shipping in shippingMethods" :key="shipping.id">
+										{{ shipping.name }} ({{ shipping.price }})
 									</option>
 								</select>
 							</div>
@@ -98,8 +101,18 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
 	export default {
 		data() {
             return {
-            	addresses: []
+            	addresses: [],
+            	shippingMethods: [],
+            	form: {
+            		address_id: null,
+            		shipping_method_id: null
+            	}
             }
+		},
+		watch: {
+			'form.address_id' (addressId) {
+				this.getShippingMethodsForAddress(addressId)
+			}
 		},
        components: {
        	CartOverview,
@@ -112,6 +125,12 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
        		products: 'cart/products',
        		empty: 'cart/empty'
        	})
+       },
+       methods: {
+          	async getShippingMethodsForAddress(addressId){
+	           let response = await this.$axios.$get(`addresses/shipping/${addressId}`)
+	           this.shippingMethods = response.data
+       		}
        },
        async asyncData({ app }) {
        	let addresses = await app.$axios.$get('addresses')
