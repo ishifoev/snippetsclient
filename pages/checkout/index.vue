@@ -14,7 +14,7 @@
 						</div>
 					</article>
 
-					<article class="message">
+					<article class="message" v-if="shippingMethodId">
 						<div class="message-body">
 							<h1 class="title is-5">Shipping</h1>
 
@@ -31,7 +31,7 @@
 							<div class="message-body">
 								<h1 class="title is-5">Cart Summary</h1>
 								<CartOverview>
-									<template slot="rows">
+									<template slot="rows" v-if="shippingMethodId">
 										<tr>
 											<td></td>
 											<td></td>
@@ -70,7 +70,9 @@
 						<div class="message-body">
 							<button 
 							class="button is-info is-fullwidth is-medium"
-                            :disabled="empty"
+                            :diabled="empty || submitting"
+							@click.prevent="order"
+
 							>Place Order</button>
 						</div>
 					</article>
@@ -82,7 +84,8 @@
 						<div class="message-body">
 							<button 
 							class="button is-info is-fullwidth is-medium"
-							:diabled="empty"
+							:diabled="empty || submitting"
+							@click.prevent="order"
 							>Place Order</button>
 						</div>
 					</article>
@@ -99,6 +102,7 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
 	export default {
 		data() {
             return {
+            	submitting: false,
             	addresses: [],
             	shippingMethods: [],
             	form: {
@@ -145,6 +149,25 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
        	    	setShipping: 'cart/setShipping',
        	    	getCart: 'cart/getCart'
        	    }),
+
+       	    async order(){
+       	    	this.submitting = true
+       	    	try{
+                   await this.$axios.$post('orders',{
+                   	 ...this.form,
+                   	 shipping_method_id: this.shippingMethodId
+                   })
+                   await this.getCart()
+
+                   this.$router.replace({
+                   		name: 'orders'
+                   })
+       	    	}
+       	    	catch(e){
+
+       	    	}
+              
+       	    },
           	async getShippingMethodsForAddress(addressId){
 	           let response = await this.$axios.$get(`addresses/shipping/${addressId}`)
 	           this.shippingMethods = response.data
