@@ -147,10 +147,12 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
        methods: {
        	    ...mapActions({
        	    	setShipping: 'cart/setShipping',
-       	    	getCart: 'cart/getCart'
+       	    	getCart: 'cart/getCart',
+       	    	flash: 'alert/flash'
        	    }),
 
        	    async order(){
+       	    	//this.flash(`Oops didn't work`)
        	    	this.submitting = true
        	    	try{
                    await this.$axios.$post('orders',{
@@ -164,8 +166,11 @@ import ShippingAddress from '@/components/checkout/addresses/ShippingAddress'
                    })
        	    	}
        	    	catch(e){
+                   this.flash(e.response.data.message)
+                   this.getCart()
 
        	    	}
+       	    	   this.submitting = false
               
        	    },
           	async getShippingMethodsForAddress(addressId){
