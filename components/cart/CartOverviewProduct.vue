@@ -40,10 +40,15 @@
 <script>
 import { mapActions } from 'vuex'
 	export default {
-		data(){
-			return {
-				quantity: this.product.quantity
-			}
+		computed: {
+             quantity: {
+             	get() {
+                   return this.product.quantity
+             	},
+             	set(quantity) {
+ 					this.update({ productId: this.product.id, quantity})
+             	}
+             }
 		},
 		props: {
 			product: {
@@ -51,11 +56,7 @@ import { mapActions } from 'vuex'
 				type: Object
 			}
 		},
-		watch: {
-			'quantity' (quantity) {
-				this.update({ productId: this.product.id, quantity})
-			}
-		},
+		
 		methods: {
 			...mapActions({
 				destroy: 'cart/destroy',
