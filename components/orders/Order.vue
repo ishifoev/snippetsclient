@@ -22,15 +22,20 @@
 		<td>{{ order.subtotal }}</td>
 
 		<td>
-		  <span class="tag is-medium" 
-		  :class="statusClasses">
-				{{ order.status }}
-		  </span>
-	   </td>
+          <component :is="order.status" />
+		</td>
 	</tr>	
 </template>
 <script>
+import OrderStatusPaymentFailed from '@/components/orders/statuses/OrderStatus-payment_failed'
+
+import OrderStatusPending from '@/components/orders/statuses/OrderStatus-pending'
+
 	export default {
+		components: {
+           'payment_failed': OrderStatusPaymentFailed,
+           'pending': OrderStatusPending
+		},
 		data() {
 			return {
 				maxProducts: 2,
