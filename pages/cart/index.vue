@@ -27,6 +27,9 @@ import CartOverview from '@/components/cart/CartOverview'
       components: {
       	CartOverview
       },
+      middleware: [
+           'redirectIfguest'
+		],
       computed: {
       	...mapGetters({
       		empty: 'cart/empty',

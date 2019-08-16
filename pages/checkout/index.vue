@@ -114,6 +114,9 @@ import PaymentMethods from '@/components/checkout/paymentMethods/PaymentMethods'
             	}
             }
 		},
+		middleware: [
+           'redirectIfguest'
+		],
 		watch: {
 			'form.address_id' (addressId) {
 				this.getShippingMethodsForAddress(addressId).then(()=>{
