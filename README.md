@@ -1,4 +1,4 @@
-# cartclient
+# snippetsclient
 
 > My posh Nuxt.js project
 
