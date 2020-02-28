@@ -1,5 +1,5 @@
 {
-  "name": "cartclient",
+  "name": "snippetsclient",
   "version": "1.0.0",
   "description": "My posh Nuxt.js project",
   "author": "Alex Malikovandr",
@@ -19,7 +19,9 @@
     "nuxt": "^2.4.0",
     "query-string": "^6.8.1",
     "sass-loader": "^7.1.0",
-    "save": "^2.3.3"
+    "save": "^2.3.3",
+    "tailwindcss": "^1.2.0",
+    "tailwindcss-transforms": "^2.2.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",

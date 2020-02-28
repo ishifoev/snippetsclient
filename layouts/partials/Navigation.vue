@@ -1,4 +1,4 @@
-<template>
+<!--<template>
 	<nav class="navbar is-white">
 		<div class="container">
 			<div class="navbar-brand">
@@ -87,4 +87,4 @@ import { mapGetters } from 'vuex'
         	})
         }
 	}
-</script>
+</script>-->

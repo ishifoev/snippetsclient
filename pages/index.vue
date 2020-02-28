@@ -1,18 +1,22 @@
 <template>
-<div class="section">
- <div class="container is-fluid">
- 	<p>Home</p>
+ <div class="container">
+  <!--<h1 class="font-medium text-4xl">Snippets</h1>
+  <p>A little more text in here</p>-->
  </div>
-</div>
 </template>
 
 <script>
 
 export default {
- 
+  head() {
+  	return {
+  		title: 'Snippets by Alex Corp',
+  		titleTemplate: null
+  	}
+  }
 }
 </script>
 
 <style>
-
 </style>
+
