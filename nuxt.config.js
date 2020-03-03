@@ -52,7 +52,7 @@ export default {
           login:{
             url: '/auth/login',
             method: 'post',
-            propertyName: 'meta.token'
+            propertyName: 'data.token'
           },
           user: {
             url: '/auth/me',
