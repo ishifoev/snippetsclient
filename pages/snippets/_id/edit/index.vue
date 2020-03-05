@@ -104,7 +104,7 @@
 	 					<nuxt-link :to="{}" :class="{
                           'font-bold': currentStep.uuid === step.uuid
 	 				    }">
-	 						{{ index + 1 }}. {{ step.title }}
+	 						{{ index + 1 }}. {{ step.title || 'Untitled step' }}
 	 					</nuxt-link>
 	 				</li>
 	 			</ul>
@@ -128,6 +128,12 @@ import { debounce as _debounce} from 'lodash'
 				steps: []
 			}
 		},
+		head() {
+            return {
+               title: `Editing ${this.snippet.title || Untitled snippet}`
+            }
+		},
+
 		watch: {
            'snippet.title': {
            	  handler: _debounce(async function (title) {
