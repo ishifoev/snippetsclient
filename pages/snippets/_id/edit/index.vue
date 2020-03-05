@@ -1,13 +1,11 @@
 <template>
 	<div>
 	<div class="bg-white mb-16">
-		{{ snippet }}
 		<div class="container py-10 pb-16">
 			<div class="w-10/12">
 
 				<input type="text" 
 				       class="text-4xl text-gray-700 font-medium font-header leading-tight mb-4 w-full block p-2 border-2 rounded border-dashed border-gray-400" 
-				       value=""
                        placeholder="Untitled snippet" 
                        v-model="snippet.title"
 				        />
@@ -28,10 +26,9 @@
 	 		</div>
 	 		<input 
 	 		      type="text" 
-	 		      name="" id="" 
 	 		      class="text-xl text-gray-600 font-medium p-2 py-1 bg-transparent border-2 rounded border-dashed border-gray-400" 
-	 		      value=""
                   placeholder="Untitled step" 
+                  v-model="currentStep.title"
 	 		      >
 	 	</div>
 
@@ -40,8 +37,8 @@
 	 		<div class="flex flex-row lg:flex-col mg-2 ordrer-first">
               <nuxt-link 
                        :to="{}"
-                       class="block mb-2 p-3 bg-blue-500 rounded-lg mr-2 lg:mr-0".
-                       title="Previos step"
+                       class="block mb-2 p-3 bg-blue-500 rounded-lg mr-2 lg:mr-0"
+                       title="Previous step"
                        >
               	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-white h-6 w-6 "><path d="M5.41 11H21a1 1 0 0 1 0 2H5.41l5.3 5.3a1 1 0 0 1-1.42 1.4l-7-7a1 1 0 0 1 0-1.4l7-7a1 1 0 0 1 1.42 1.4L5.4 11z"/></svg>
               </nuxt-link>
@@ -57,7 +54,7 @@
 
 
 	 			<div class="w-full lg:mr-2">
-	 				<textarea class="w-full mb-6 border-dashed border-2 border-gray-400 rounded-lg">
+	 				<textarea class="w-full mb-6 border-dashed border-2 border-gray-400 rounded-lg" v-model="currentStep.body">
 	 					
 	 				</textarea>
 	 					
@@ -103,11 +100,11 @@
 	 				<h1 class="text-xl text-gray-600 font-medium mb-6">Steps</h1>
 	 		
 	 			<ul>
-	 				<li v-for="(step, index) in 5" :key="index" class="mb-1">
+	 				<li v-for="(step, index) in orderedStepAsc" :key="index" class="mb-1">
 	 					<nuxt-link :to="{}" :class="{
-                          'font-bold': index === 0
+                          'font-bold': currentStep.uuid === step.uuid
 	 				    }">
-	 						{{ index + 1 }}. Step title
+	 						{{ index + 1 }}. {{ step.title }}
 	 					</nuxt-link>
 	 				</li>
 	 			</ul>
@@ -122,12 +119,50 @@
 </div>
 </template>
 <script type="text/javascript">
+import { orderBy as _orderBy} from 'lodash'
+import { debounce as _debounce} from 'lodash'
 	export default {
 		data() {
 			return {
 				snippet: null,
 				steps: []
 			}
+		},
+		watch: {
+           'snippet.title': {
+           	  handler: _debounce(async function (title) {
+                 await this.$axios.$patch(`snippets/${this.snippet.uuid}`,{
+                 	title
+                 })
+           	  }, 500)
+           },
+
+           currentStep: {
+           	  deep: true,
+           	  handler: _debounce(async function (step) {
+                 await this.$axios.$patch(`snippets/${this.snippet.uuid}/steps/${step.uuid}`,{
+                 	title: step.title,
+                 	body: step.body
+                 }, 500)
+           	  })
+           }
+		},
+		computed: {
+            orderedStepAsc() {
+            	return _orderBy (
+            		this.steps, 'order', 'asc'
+            	)
+            },
+
+            firstStep() {
+                return this.orderedStepAsc[0]
+            },
+
+            currentStep() {
+            	return this.orderedStepAsc.find(
+                   (s) => s.uuid === this.$route.query.step
+            	) || this.firstStep
+            }
 		},
 		async asyncData({ app, params}) {
 			let snippet = await app.$axios.$get(`snippets/${params.id}`)
