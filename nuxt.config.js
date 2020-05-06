@@ -32,7 +32,8 @@ export default {
   ** Global CSS
   */
   css: [
-  '~/assets/styles/components/app.css'
+  '~/assets/styles/components/app.css',
+  '~/assets/styles/components/codemirror.css'
   ],
 
   /*
