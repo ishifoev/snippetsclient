@@ -27,6 +27,11 @@ import BrowseSnippetCard from './components/BrowseSnippetCard'
 		components: {
           BrowseSnippetCard
 		}, 
+		head() {
+		  	return {
+		  		title: 'Browse',
+		  	}
+		  },
 		data() {
            return {
            	snippets: []
