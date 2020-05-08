@@ -48,7 +48,7 @@
 
                     <li>
                         <nuxt-link 
-                                  :to="{ name: 'index'}"
+                                  :to="{ name: 'search'}"
                                   class="text-lg text-gray-700 lg:py-8 lg:px-4"
                                   >Search</nuxt-link>
                     </li>
