@@ -165,6 +165,9 @@ import StepEditor from './components/StepEditor'
         lastSaved: null
 			}
 		},
+    middleware: [
+           'auth'
+    ],
     mixins: [
     browseSnippet
     ],

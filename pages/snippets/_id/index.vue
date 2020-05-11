@@ -105,6 +105,11 @@ import StepMarkdown from '@/components/snippets/StepMarkdown'
 			}
 		},
 
+		middleware: [
+           'auth'
+		],
+
+
 		head() {
             return {
                //title: `${this.snippet.title || Untitled snippet}`

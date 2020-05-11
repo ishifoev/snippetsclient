@@ -29,6 +29,10 @@ import DashboardSnippetCard from './components/DashboardSnippetCard'
            }
 		},
 
+		middleware: [
+           'auth'
+		],
+
 		head() {
 		  	return {
 		  		title: 'Dashboard',
