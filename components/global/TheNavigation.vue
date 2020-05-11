@@ -5,7 +5,7 @@
            :to="{name: 'index'}"
            class="mr-10 flex-shrink-0"
            >
-           <img class="h-8" src="https://s3.amazonaws.com/s3.codecourse.com/code/snippets-logo/logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJL2KCCLOFDJUI4QA%2F20200218%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200218T092029Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Signature=4b9f1feb7e0e28147319a57879a40cc4338abe370883f3bf7e393742cbec401e" alt="">
+           <img class="h-8" src="https://s3.amazonaws.com/s3.codecourse.com/code/snippets-logo/logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJL2KCCLOFDJUI4QA%2F20200511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200511T050830Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Signature=c35dea06e86b95db80e4cbc65019b78e4fdf4ed332ea382e97589bb5f8aa0108" alt="">
            </nuxt-link>
 
            <a 
