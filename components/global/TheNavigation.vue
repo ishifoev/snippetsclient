@@ -65,7 +65,7 @@
 
                     <li>
                         <nuxt-link 
-                                  :to="{ name: 'index'}"
+                                  :to="{ name: 'account'}"
                                   class="text-lg text-gray-700 lg:py-8 lg:px-4"
                                   >{{ $auth.user.name }}</nuxt-link>
                     </li>
