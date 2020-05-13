@@ -31,7 +31,7 @@ import SnippetCard from '@/components/snippets/SnippetCard'
 		data() {
 			return {
 			    user: null,
-	            snippets: []
+	            snippets: [],
 			}
          
 		},
