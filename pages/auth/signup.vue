@@ -132,11 +132,11 @@
                 	</form>
 
                     <div class="text-center text-gray-600">
-                      No account? 
+                      Already got an account? 
 
                       <nuxt-link
                         :to="{ name: 'index'}"
-                        >Create one here
+                        >Sign in here
                     </nuxt-link>
                     </div>
                 
