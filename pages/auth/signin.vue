@@ -63,7 +63,7 @@
                       No account? 
 
                       <nuxt-link
-                        :to="{ name: 'index'}"
+                        :to="{ name: 'auth-signup'}"
                         >Create one here
                     </nuxt-link>
                     </div>
