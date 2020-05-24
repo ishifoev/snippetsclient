@@ -174,7 +174,7 @@
         	{
                 try {
                   await this.$axios.$post('auth/signup', this.form)
-                   await this.$auth.loginWith('local',{
+                  await this.$auth.loginWith('local',{
                    data: {
                     email: this.form.email,
                     password: this.form.password
