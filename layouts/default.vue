@@ -1,21 +1,23 @@
 <template>
   <div>
-    <TheNavigation />
-    <nuxt/>
-    <TheFooter />
+
+    <TheAlert />
+  	<Navigation/>
+    <nuxt />
   </div>
 </template>
+
+
 <script>
-import TheNavigation from '@/components/global/TheNavigation'
-import TheFooter from '@/components/global/TheFooter'
-export default {
-  components: {
-    TheNavigation,
-    TheFooter
-  }
-}
+import Navigation from '@/layouts/partials/Navigation'
+import TheAlert from '@/components/globals/TheAlert'
+	export default {   
+		components:{
+			Navigation,
+			TheAlert
+		}
+	}
 </script>
 <style>
 
 </style>
-

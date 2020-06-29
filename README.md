@@ -1,6 +1,6 @@
-# snippetsclient
+# cartclient
 
-> My push Nuxt.js project
+> My posh Nuxt.js project
 
 ## Build Setup
 

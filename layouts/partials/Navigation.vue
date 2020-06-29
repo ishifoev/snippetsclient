@@ -1,9 +1,9 @@
-<!--<template>
-	<nav class="navbar is-white">
+<template>
+	<nav class="navbar" style="background-color:#118fe4">
 		<div class="container">
-			<div class="navbar-brand">
+			<div class="navbar-menu">
 				<nuxt-link :to="{ name: 'index' }" class="navbar-item">
-					cart
+					Pizza Service
 				</nuxt-link>
                <div class="navbar-burger burger" data-target="nav">
                	<span></span>
@@ -58,6 +58,7 @@
 						<nuxt-link :to="{ name: 'auth-signin' }" class="navbar-item">
 							Sign in
 						</nuxt-link>
+						
 					</template>
 					<template v-else>
 						<a href="#" class="navbar-item">
@@ -87,4 +88,9 @@ import { mapGetters } from 'vuex'
         	})
         }
 	}
-</script>-->
+</script>
+<style>
+.navbar-item, .navbar-link {
+	color:white;
+}
+</style>
