@@ -1,4 +1,4 @@
-<!--<template>
+<template>
 	<table class="table is-hoverable is-fullwidth">
 		<tbody>
 			<tr v-for="paymentMethod in paymentMethods" :key="paymentMethod.id">
@@ -29,4 +29,4 @@
 			}
 		}
 	}
-</script>-->
+</script>

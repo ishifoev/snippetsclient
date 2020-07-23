@@ -18,13 +18,8 @@
              	<p v-if="product.description">
              		{{ product.description }}
              	</p>
-             	<strong>Starting From </strong><span class="tag is rounded is-medium">{{ product.price }}</span>
+             	<span class="tag is rounded is-medium">{{ product.price }}</span>
              </div>
-             	<nuxt-link 
-             	:to="link" 
-							class="button is-info is-fullwidth is-medium"
-						
-							>Select Options</nuxt-link>
 
 		</div>
 	</div>
@@ -46,9 +41,6 @@
 					}
 				}
 			}
-		},
-		middleware: [
-           'redirectIfguest'
-		],
+		}
 	}
 </script>

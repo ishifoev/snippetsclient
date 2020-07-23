@@ -1,4 +1,4 @@
-export const state = () => ({
+/*export const state = () => ({
     categories : []
 });
 export const mutations = {
@@ -20,4 +20,4 @@ export const actions = {
             await dispatch('cart/getCart')
         }
     }
-}
+}*/

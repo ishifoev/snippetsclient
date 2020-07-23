@@ -1,4 +1,4 @@
-<!--<template>
+<template>
 	<form action="#" @submit.prevent="store">
 		<div class="field">
 			<div id="card-element">
@@ -62,4 +62,4 @@
 		}
 		
 	}
-</script>-->
+</script>

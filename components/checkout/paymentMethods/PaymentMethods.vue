@@ -1,4 +1,4 @@
-<!--<template>
+<template>
 	<article class="message">
 						<div class="message-body">
 							<h1 class="title is-5">Payment method</h1>
@@ -99,4 +99,4 @@ import PaymentMethodCreator from './PaymentMethodCreator'
 			}
 		}
 	}
-</script>-->
+</script>
