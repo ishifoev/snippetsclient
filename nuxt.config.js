@@ -40,7 +40,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-  '~/plugins/algolia'
+  //'~/plugins/algolia'
   ],
   modules: [
     '@nuxtjs/axios',
@@ -88,8 +88,8 @@ export default {
   */
   build: {
     transpile: [
-      'vue-instantsearch',
-      'instanstsearch.js/es'
+      //'vue-instantsearch',
+      //'instanstsearch.js/es'
     ],
     /*
     ** You can extend webpack config here

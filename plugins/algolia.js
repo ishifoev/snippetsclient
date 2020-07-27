@@ -1,4 +1,4 @@
-import algoliasearch from 'algoliasearch/lite'
+/*import algoliasearch from 'algoliasearch/lite'
 import { createInstantSearch } from 'vue-instantsearch'
 import { history } from 'instantsearch.js/es/lib/routers'
 export default async ({ app }, inject) => {
@@ -16,4 +16,4 @@ export default async ({ app }, inject) => {
  	}
  })
  inject('instantsearch', instantsearch)
-}
+}*/

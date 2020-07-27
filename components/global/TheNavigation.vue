@@ -5,7 +5,7 @@
            :to="{name: 'index'}"
            class="mr-10 flex-shrink-0"
            >
-           <img class="h-8" src="https://s3.amazonaws.com/s3.codecourse.com/code/snippets-logo/logo.svg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJL2KCCLOFDJUI4QA%2F20200511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200511T050830Z&X-Amz-SignedHeaders=host&X-Amz-Expires=18000&X-Amz-Signature=c35dea06e86b95db80e4cbc65019b78e4fdf4ed332ea382e97589bb5f8aa0108" alt="">
+           <img class="h-8" src="https://snippets.codecourse.com/_nuxt/img/646b20c.svg" alt="">
            </nuxt-link>
 
            <a 
@@ -46,12 +46,12 @@
                                   >Browse</nuxt-link>
                     </li>
 
-                    <li>
+                    <!--<li>
                         <nuxt-link 
                                   :to="{ name: 'search'}"
                                   class="text-lg text-gray-700 lg:py-8 lg:px-4"
                                   >Search</nuxt-link>
-                    </li>
+                    </li>-->
                 </ul>
 
                 <ul class="lg:h-24 lg:flex items-center ml-auto text-right w-full lg:w-auto">
