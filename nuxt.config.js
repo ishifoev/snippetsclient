@@ -46,17 +46,12 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
-  auth: {
-
-    redirect: {
-      login: '/auth/signin'
-    },
-    
+  auth: {  
       strategies: {
         local: {
           endpoints: {
           login:{
-            url: '/auth/login',
+            url: '/auth/signin',
             method: 'post',
             propertyName: 'data.token'
           },

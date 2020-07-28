@@ -23,7 +23,7 @@
 	</div>
 	 <div class="container">
 	 	<h1 class="text-xl text-gray-600 font-medium mb-6">
-	 		{{  currentStepIndex + 1 }} / {{ steps.length}}. {{ currentStep.title}}
+	 		{{  currentStep.order }} / {{ steps.length}}. {{ currentStep.title}}
 	 	</h1>
 	 	<div class="flex flex-wrap lg:flex-no-wrap">
 		<div class="w-full lg:w-8/12 lg:mr-16 flex flex-wrap lg:flex-no-wrap justify-between items start mb-8">
@@ -110,9 +110,9 @@ import StepMarkdown from '@/components/snippets/StepMarkdown'
 			}
 		},
 
-		middleware: [
-           'auth'
-		],
+		//middleware: [
+          // 'auth'
+		//],
 
 
 		head() {
