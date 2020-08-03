@@ -69,7 +69,7 @@ export default {
    }
   },
    axios: {
-   baseURL: 'http://snippetsapi.test/api'
+   baseURL: 'https://snippetsapiservice.herokuapp.com/api'
   },
 
   /*
