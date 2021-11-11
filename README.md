@@ -1,6 +1,6 @@
 # snippetsclient
 
-> My push Nuxt.js project
+> My push Nuxt.js
 
 ## Build Setup
 
